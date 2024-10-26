@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anand Pump - Powering Your World</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Core Styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #d1d5db;
+      background-color: #121212;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    /* Header */
+    .header {
+      background: rgba(18, 18, 18, 0.8);
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      z-index: 50;
+      transition: background 0.5s ease;
+      backdrop-filter: blur(10px);
+    }
+    .header.scrolled {
+      background: rgba(10, 10, 10, 0.95);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    }
+    .nav-link {
+      font-size: 18px;
+      color: #a3e635;
+      padding: 0 12px;
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #facc15;
+    }
+    .highlight-button {
+      background: linear-gradient(135deg, #84cc16, #65a30d);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .highlight-button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(135deg, #65a30d, #3b82f6);
+    }
+
+    /* Hero Section */
+    .hero {
+      background-image: url('https://yourimage.url/hero-bg-future.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #f3f4f6;
+      position: relative;
+      text-shadow: 0 8px 15px rgba(0, 0, 0, 0.8);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .hero h1 {
+      font-size: 70px;
+      font-weight: 800;
+      color: #34d399;
+      animation: fadeInUp 1.2s ease forwards;
+      background: linear-gradient(45deg, #3b82f6, #facc15);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero p {
+      font-size: 24px;
+      margin-top: 20px;
+      color: #f3f4f6;
+      animation: fadeInUp 1.8s ease forwards;
+    }
+    .hero button {
+      margin-top: 35px;
+      padding: 14px 30px;
+      background: linear-gradient(135deg, #facc15, #eab308);
+      color: white;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: transform 0.3s, background 0.3s;
+      animation: fadeInUp 2.4s ease forwards;
+    }
+    .hero button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #eab308, #ca8a04);
+    }
+
+    /* Scroll Animations */
+    @keyframes fadeInUp {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Product Section */
+    .product-section {
+      background: linear-gradient(to right, #1f2937, #111827);
+      color: #d1d5db;
+      padding: 5rem 0;
+    }
+    .product-card {
+      background: #1a202c;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+    }
+    .product-image {
+      height: 250px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+    .product-details {
+      padding: 1.5rem;
+    }
+    .product-details h3 {
+      font-size: 1.5rem;
+      color: #facc15;
+      font-weight: bold;
+    }
+    .product-details p {
+      margin-top: 0.5rem;
+      color: #9ca3af;
+    }
+    .product-details button {
+      margin-top: 1rem;
+      background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+    .product-details button:hover {
+      background: linear-gradient(135deg, #1e40af, #1e3a8a);
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+      background: #171717;
+      color: #e5e7eb;
+      border-radius: 10px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .testimonial-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Contact Form */
+    .contact-input {
+      background: #374151;
+      border: 1px solid #4b5563;
+      color: #e5e7eb;
+      border-radius: 6px;
+      padding: 1rem;
+    }
+    .contact-input:focus {
+      border-color: #3b82f6;
+      outline: none;
+    }
+
+    /* Footer */
+    .footer {
+      background: #101010;
+      color: #9ca3af;
+      padding: 40px;
+    }
+    .footer a {
+      color: #9ca3af;
+      transition: color 0.3s ease;
+    }
+    .footer a:hover {
+      color: #3b82f6;
+    }
+  </style>
+   <!-- Header -->
+   <header class="header" id="header">
+    <div class="container mx-auto flex justify-between items-center px-6">
+      <a href="#" class="logo"><img src="anandpump.logo.png" alt="Anand Pump Logo" class="w-32"></a>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#" class="nav-link">E-Commerce</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#impact" class="nav-link">Our Impact</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#dealer" class="highlight-button">Be a Dealer</a>
+      </nav>
+      <div class="hamburger md:hidden" id="hamburger">
+        <div class="w-6 h-1 bg-gray-400 my-1"></div>
+        <div class="w-6 h-1 bg-gray-400 my-1"></div>
+        <div class="w-6 h-1 bg-gray-400 my-1"></div>
+      </div>
+    </div>
+    <div class="mobile-menu hidden" id="mobile-menu">
+      <a href="#" class="nav-link block py-2">E-Commerce</a>
+      <a href="#about" class="nav-link block py-2">About Us</a>
+      <a href="#impact" class="nav-link block py-2">Our Impact</a>
+      <a href="#contact" class="nav-link block py-2">Contact</a>
+      <a href="#dealer" class="highlight-button block py-2">Be a Dealer</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="text-center relative z-10">
+      <h1 class="text-6xl font-bold">Anand Pump</h1>
+      <p class="mt-3 text-xl">Future-Ready Pump Solutions for a World That Moves</p>
+      <button onclick="location.href='#products'" class="mt-6 bg-gradient-to-r from-yellow-400 to-indigo-600 hover:from-yellow-500 hover:to-indigo-700 text-white px-8 py-3 rounded-lg text-lg">Discover More</button>
+    </div>
+  </section>
+   <!-- Product Section -->
+   <section id="products" class="product-section">
+    <div class="container mx-auto text-center">
+      <h2 class="text-5xl font-bold mb-10 text-yellow-400">Our Products</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Product Card 1 -->
+        <div class="product-card">
+          <div class="product-image" style="background-image: url('https://yourimage.url/product1.jpg');"></div>
+          <div class="product-details">
+            <h3>High-Efficiency Agricultural Pump</h3>
+            <p>Designed to handle the toughest conditions, providing farmers with reliable performance.</p>
+            <button>Learn More</button>
+          </div>
+        </div>
+        <!-- Product Card 2 -->
+        <div class="product-card">
+          <div class="product-image" style="background-image: url('https://yourimage.url/product2.jpg');"></div>
+          <div class="product-details">
+            <h3>Heavy-Duty Industrial Pump</h3>
+            <p>Robust build to support continuous industrial operations with high durability and output.</p>
+            <button>Learn More</button>
+          </div>
+        </div>
+        <!-- Product Card 3 -->
+        <div class="product-card">
+          <div class="product-image" style="background-image: url('https://yourimage.url/product3.jpg');"></div>
+          <div class="product-details">
+            <h3>Custom Pump Solutions</h3>
+            <p>Tailored solutions to meet specific needs across industries and applications.</p>
+            <button>Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials bg-gray-900 text-white py-20">
+    <div class="container mx-auto text-center">
+      <h2 class="text-5xl font-bold text-blue-400 mb-12">What Our Clients Say</h2>
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card bg-gray-800 p-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <p class="text-lg italic mb-6">"Anand Pump delivered exceptional quality and service. Our industry needs were met with precision and dedication."</p>
+          <div class="flex items-center">
+            <img src="client1.jpg" alt="Client 1" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h3 class="text-xl font-semibold text-blue-400">Rajesh Kumar</h3>
+              <p class="text-gray-400 text-sm">CEO, Industrial Solutions Ltd.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card bg-gray-800 p-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <p class="text-lg italic mb-6">"Durable and efficient pumps that exceeded expectations. Perfect for our industrial setup!"</p>
+          <div class="flex items-center">
+            <img src="client2.jpg" alt="Client 2" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h3 class="text-xl font-semibold text-blue-400">Sonia Verma</h3>
+              <p class="text-gray-400 text-sm">Operations Manager, AgriTech Corp.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card bg-gray-800 p-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 duration-300">
+          <p class="text-lg italic mb-6">"The team at Anand Pump is committed to customer satisfaction. Their service is unparalleled."</p>
+          <div class="flex items-center">
+            <img src="client3.jpg" alt="Client 3" class="w-12 h-12 rounded-full mr-4">
+            <div>
+              <h3 class="text-xl font-semibold text-blue-400">Arun Sharma</h3>
+              <p class="text-gray-400 text-sm">Founder, Green Earth Solutions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container mx-auto py-20 px-6 bg-gradient-to-r from-blue-900 to-gray-800 text-white rounded-lg shadow-lg mt-16">
+    <h2 class="text-5xl font-bold text-center mb-12 text-blue-400">Get in Touch</h2>
+    <p class="text-lg text-center mb-8 text-gray-300">Have questions? Reach out to our team for expert guidance and support.</p>
+    <form class="max-w-3xl mx-auto space-y-6">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label class="block font-semibold mb-2">Name</label>
+          <input type="text" class="contact-input w-full p-4 rounded-lg" placeholder="Your Name">
+        </div>
+        <div>
+          <label class="block font-semibold mb-2">Email</label>
+          <input type="email" class="contact-input w-full p-4 rounded-lg" placeholder="Your Email">
+        </div>
+      </div>
+      <label class="block font-semibold mb-2">Message</label>
+      <textarea class="contact-input w-full p-4 rounded-lg" rows="6" placeholder="Write your message here..."></textarea>
+      <button type="submit" class="w-full py-4 mt-4 bg-blue-600 hover:bg-blue-700 text-lg font-semibold rounded-lg transition duration-300">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer text-white py-16 mt-20">
+    <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
+      <!-- About Us -->
+      <div>
+        <h3 class="text-2xl font-semibold text-blue-400 mb-4">About Us</h3>
+        <ul class="space-y-2">
+          <li><a href="#about" class="hover:text-blue-300">Company Overview</a></li>
+          <li><a href="#vision" class="hover:text-blue-300">Our Vision</a></li>
+          <li><a href="#team" class="hover:text-blue-300">Our Team</a></li>
+        </ul>
+      </div>
+      <!-- Our Products -->
+      <div>
+        <h3 class="text-2xl font-semibold text-blue-400 mb-4">Our Products</h3>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-blue-300">Agricultural Pumps</a></li>
+          <li><a href="#" class="hover:text-blue-300">Industrial Pumps</a></li>
+          <li><a href="#" class="hover:text-blue-300">Custom Solutions</a></li>
+        </ul>
+      </div>
+      <!-- Contact Us -->
+      <div>
+        <h3 class="text-2xl font-semibold text-blue-400 mb-4">Contact Us</h3>
+        <ul class="space-y-2">
+          <li><p><i class="fas fa-phone-alt mr-2"></i> +1 (234) 567-890</p></li>
+          <li><p><i class="fas fa-envelope mr-2"></i> info@anandpump.com</p></li>
+          <li><p><i class="fas fa-map-marker-alt mr-2"></i> 123 Pump Street, New Delhi, India</p></li>
+        </ul>
+      </div>
+      <!-- Social Media Icons -->
+      <div>
+        <h3 class="text-2xl font-semibold text-blue-400 mb-4">Follow Us</h3>
+        <div class="flex justify-center md:justify-start space-x-4 text-gray-400 text-2xl">
+          <a href="#" class="hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="hover:text-blue-300"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="hover:text-blue-300"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-blue-300"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- Payment Options and Copyright -->
+    <div class="container mx-auto mt-8 px-6 grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
+        <div>
+            <h3 class="text-xl font-semibold mb-4 text-blue-400">Payment Options</h3>
+            <div class="flex justify-center md:justify-start space-x-6 text-gray-400 text-2xl">
+              <i class="fab fa-cc-visa hover:text-blue-300 transition-all"></i>
+              <i class="fab fa-cc-mastercard hover:text-blue-300 transition-all"></i>
+              <i class="fab fa-cc-paypal hover:text-blue-300 transition-all"></i>
+              <i class="fab fa-cc-amex hover:text-blue-300 transition-all"></i>
+            </div>
+          </div>
+          <div class="text-gray-500 mt-8 md:mt-0">
+            <p>© 2024 Anand Pump. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
+    
+      <!-- JavaScript for Interactivity -->
+      <script>
+        // Toggle mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+      
+        hamburger.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      
+        // Scroll animation for header background color change
+        window.addEventListener('scroll', () => {
+          const header = document.getElementById('header');
+          header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+      
+        // Counter Animation Script for "Our Impact" Section
+        function animateCounter(id, endValue, duration) {
+          let startValue = 0;
+          const element = document.getElementById(id);
+          const increment = endValue / (duration / 10);
+          const counter = setInterval(() => {
+            startValue += increment;
+            if (startValue >= endValue) {
+              element.textContent = Math.floor(endValue);
+              clearInterval(counter);
+            } else {
+              element.textContent = Math.floor(startValue);
+            }
+          }, 10);
+        }
+      
+        // Trigger counters when the "Our Impact" section is in view
+        let countersTriggered = false;
+        window.addEventListener('scroll', () => {
+          const impactSection = document.querySelector('.impact-section');
+          const sectionTop = impactSection.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+      
+          if (sectionTop < windowHeight && !countersTriggered) {
+            animateCounter('pumps-delivered', 3000, 2000);
+            animateCounter('liters-pumped', 1200000, 2000);
+            animateCounter('farms-helped', 850, 2000);
+            countersTriggered = true;
+          }
+        });
+      </script>
+    
+    </body>
+    </html>
