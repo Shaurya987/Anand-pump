@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Anand Pump</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #e5e5e5;
+      background-color: #111;
+      overflow-x: hidden;
+    }
+
+    .header {
+      background: rgba(20, 20, 20, 0.8);
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      z-index: 50;
+      transition: background 0.5s ease;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Hero Section */
+    .about-hero {
+      background-image: url('https://yourimage.url/about-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #e5e5e5;
+      text-shadow: 0 6px 10px rgba(0, 0, 0, 0.7);
+      padding: 0 20px;
+    }
+    .about-hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #d4af37;
+      font-family: 'Playfair Display', serif;
+      animation: fadeInDown 1.2s ease forwards;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: #e5e5e5;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .section-container {
+      padding: 4rem 2rem;
+      background-color: #101010;
+      color: #d4af37;
+      text-align: center;
+    }
+
+    .content-box {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      color: #c4c4c4;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    .list-item {
+      padding: 0.5rem;
+      font-size: 1.1rem;
+      color: #d4af37;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.5s ease forwards;
+    }
+
+    /* Animation */
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .about-hero h1 {
+        font-size: 2.5rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .section-container {
+        padding: 3rem 1.5rem;
+      }
+    }
+
+    /* Footer */
+    .footer {
+      background: #0f0f0f;
+      color: #b5a476;
+      padding: 40px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container mx-auto flex justify-between items-center px-6">
+      <a href="index.html" class="logo"><img src="anannd pump logo..png" alt="Anand Pump Logo" class="w-32"></a>
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About Us</a>
+        <a href="#vision" class="nav-link">Vision</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- About Hero Section -->
+  <section class="about-hero">
+    <h1>About Us</h1>
+  </section>
+
+  <!-- Vision Section -->
+  <section id="vision" class="section-container">
+    <div class="container mx-auto">
+      <h2 class="section-title">Our Vision</h2>
+      <div class="content-box">
+        <p>At Anand Pump, our vision is to revolutionize the pumping industry with advanced, reliable, and efficient solutions. We aim to lead in technological innovation, ensuring that our pumps contribute to sustainable development across industries, from agriculture to manufacturing. Every pump we produce reflects our dedication to the future of green energy and resource conservation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Commitment to Quality Section -->
+  <section class="section-container bg-gray-900">
+    <div class="container mx-auto">
+      <h2 class="section-title text-yellow-400">Commitment to Quality</h2>
+      <div class="content-box">
+        <p>Quality is at the core of everything we do. Our rigorous standards ensure that each pump meets our performance benchmarks before reaching our customers. We combine state-of-the-art technology with meticulous attention to detail, resulting in pumps that offer both durability and efficiency.</p>
+        <ul class="quality-list mt-6">
+          <li class="list-item"><i class="fas fa-check-circle"></i> Precision Engineering</li>
+          <li class="list-item"><i class="fas fa-check-circle"></i> Robust Durability</li>
+          <li class="list-item"><i class="fas fa-check-circle"></i> Eco-friendly Production</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="section-container">
+    <div class="container mx-auto">
+      <h2 class="section-title">Why Choose Us</h2>
+      <div class="content-box">
+        <p>Choosing Anand Pump means choosing reliability, innovation, and exceptional customer service. We are dedicated to meeting our clients’ needs with tailored solutions and providing comprehensive support at every stage. Here’s what sets us apart:</p>
+        <ul class="choose-list mt-6">
+          <li class="list-item"><i class="fas fa-thumbs-up"></i> Unmatched Customer Support</li>
+          <li class="list-item"><i class="fas fa-leaf"></i> Environmentally Conscious Designs</li>
+          <li class="list-item"><i class="fas fa-bolt"></i> Cutting-edge Technology</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container mx-auto">
+      <p>© 2024 Anand Pump. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
