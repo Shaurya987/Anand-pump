@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be a Dealer - Anand Pump</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Additional styles for the Be a Dealer form */
+    .dealer-form {
+      background: #111;
+      padding: 3rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+    }
+    .dealer-form label {
+      color: #e8d5b3;
+    }
+    .dealer-form input, .dealer-form textarea {
+      background: #1e1e1e;
+      border: 1px solid #4b4b4b;
+      color: #e8e8e8;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+    .dealer-form input:focus, .dealer-form textarea:focus {
+      border-color: #a78b56;
+      outline: none;
+    }
+    .dealer-form button {
+      background: linear-gradient(135deg, #a78b56, #826c41);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+      margin-top: 1.5rem;
+    }
+    .dealer-form button:hover {
+      background: linear-gradient(135deg, #826c41, #a78b56);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+  <!-- Be a Dealer Form Section -->
+  <section class="container mx-auto py-20 px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-5xl font-bold text-yellow-400">Be a Dealer</h2>
+      <p class="mt-4 text-lg text-gray-300">Join us in delivering the best in pump solutions. Fill out the form below to get started.</p>
+    </div>
+    <form action="dealer-submit.php" method="post" class="dealer-form max-w-2xl mx-auto space-y-6">
+      <div>
+        <label for="name" class="block font-semibold">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your Full Name">
+      </div>
+      <div>
+        <label for="email" class="block font-semibold">Email</label>
+        <input type="email" id="email" name="email" required placeholder="Your Email Address">
+      </div>
+      <div>
+        <label for="phone" class="block font-semibold">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required placeholder="Your Contact Number">
+      </div>
+      <div>
+        <label for="location" class="block font-semibold">Location</label>
+        <input type="text" id="location" name="location" required placeholder="City/Region">
+      </div>
+      <div>
+        <label for="message" class="block font-semibold">Why do you want to become a dealer?</label>
+        <textarea id="message" name="message" rows="4" required placeholder="Tell us about your interest in becoming a dealer"></textarea>
+      </div>
+      <button type="submit">Submit Application</button>
+    </form>
+  </section>
+
+  <footer class="footer text-white py-16 mt-20">
+    <div class="container mx-auto px-6 text-center text-gray-500">
+      <p>© 2024 Anand Pump. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

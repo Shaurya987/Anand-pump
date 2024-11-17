@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anand Pump E-commerce Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Additional custom styles */
+    .glassmorphism {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .hover-effect:hover {
+      transform: scale(1.02);
+      transition: all 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-900 to-purple-900 font-sans leading-normal tracking-normal min-h-screen">
+
+  <!-- Header -->
+  <header class="p-8 bg-opacity-70 glassmorphism text-white shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-3xl font-extrabold">Anand Pump Portal</h1>
+      <nav>
+        <a href="#" class="text-lg mx-4 hover:text-blue-200 transition duration-300">Home</a>
+        <a href="#" class="text-lg mx-4 hover:text-blue-200 transition duration-300">Products</a>
+        <a href="#" class="text-lg mx-4 hover:text-blue-200 transition duration-300">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container mx-auto my-16 px-6">
+    <h2 class="text-5xl font-extrabold text-white text-center mb-12">Upload a New Product</h2>
+
+    <!-- Product Upload Form -->
+    <form class="bg-white glassmorphism p-10 rounded-xl max-w-lg mx-auto shadow-xl hover-effect">
+      <div class="mb-6">
+        <label class="block text-gray-100 text-sm font-bold mb-2" for="productName">Product Name</label>
+        <input class="shadow appearance-none border border-blue-300 rounded-lg w-full py-3 px-4 text-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-600" id="productName" type="text" placeholder="Enter product name">
+      </div>
+
+      <div class="mb-6">
+        <label class="block text-gray-100 text-sm font-bold mb-2" for="price">Price</label>
+        <input class="shadow appearance-none border border-blue-300 rounded-lg w-full py-3 px-4 text-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-600" id="price" type="number" placeholder="Enter price">
+      </div>
+
+      <div class="mb-6">
+        <label class="block text-gray-100 text-sm font-bold mb-2" for="description">Product Description</label>
+        <textarea class="shadow appearance-none border border-blue-300 rounded-lg w-full py-3 px-4 text-gray-800 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-600" id="description" rows="4" placeholder="Enter product description"></textarea>
+      </div>
+
+      <div class="mb-6">
+        <label class="block text-gray-100 text-sm font-bold mb-2" for="photo">Upload Photo</label>
+        <input class="w-full py-3 px-4 text-gray-800 bg-white border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" id="photo" type="file">
+      </div>
+
+      <div class="flex items-center justify-center mt-8">
+        <button onclick="window.location.href='successupload.html'" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-600 hover:to-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform transition duration-500 ease-in-out hover:scale-105" type="button">
+            Upload Product
+          </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-opacity-70 glassmorphism text-white p-8 mt-16">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Anand Pump. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
